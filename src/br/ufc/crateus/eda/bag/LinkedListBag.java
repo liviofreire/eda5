@@ -43,8 +43,22 @@ public class LinkedListBag<E> extends AbstractListBag<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Iterator<E>() {
+			
+			Node lst = list;
+
+			@Override
+			public boolean hasNext() {
+				return lst != null;
+			}
+
+			@Override
+			public E next() {
+				E element = lst.element;
+				lst = lst.next;
+				return element;
+			}
+		};
 	}
 
 	@Override
