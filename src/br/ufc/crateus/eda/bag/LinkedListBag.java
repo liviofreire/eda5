@@ -50,6 +50,7 @@ public class LinkedListBag<E> extends AbstractListBag<E> {
 			@Override
 			public boolean hasNext() {
 				return lst != null;
+
 			}
 
 			@Override

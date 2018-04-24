@@ -2,7 +2,7 @@ package br.ufc.crateus.eda.st;
 
 public class BinarySearchTreeST<K extends Comparable<K>, V> implements OrderedST<K, V> {
 	
-	private class Node {
+	protected class Node {
 		K key;
 		V value;
 		int count;
@@ -16,8 +16,7 @@ public class BinarySearchTreeST<K extends Comparable<K>, V> implements OrderedST
 		}
 	}
 	
-	Node root;
-	
+	protected Node root;
 	
 	private Node put(Node r, K key, V value) {
 		if (r == null) return new Node(key, value); 
@@ -158,7 +157,6 @@ public class BinarySearchTreeST<K extends Comparable<K>, V> implements OrderedST
 
 	@Override
 	public K select(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -214,8 +212,32 @@ public class BinarySearchTreeST<K extends Comparable<K>, V> implements OrderedST
 		return 0;
 	}
 	
-	private int count(Node node) {
+	protected int count(Node node) {
 		return (node != null)? node.count : 0;
+	}
+	
+	public static void main(String[] args) {
+		OrderedST<Integer, String> st = new BinarySearchTreeST<>();
+		st.put(4, "");
+		st.put(9, "");
+		st.put(7, "");
+		st.put(2, "");
+		st.put(13, "");
+		st.put(0, "");
+		st.put(8, "");
+		st.put(3, "");
+		st.put(14, "");
+		st.put(10, "");
+		st.put(11, "");
+		st.put(6, "");
+		st.put(1, "");
+		st.put(5, "");
+		st.put(12, "");
+		
+		for (int i = -1; i <= 15; i++)
+			System.out.println(st.select(i));
+		
+		System.out.println(st.rank(10));
 	}
 
 }
